@@ -1,17 +1,75 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Salmon Stand</title>
+    <link rel="stylesheet" href="css/style.css">
 </head>
+
 <body>
+    <header>
+        <nav>
+            <ul>
+                <li><img src="img\salmon.png" alt="Logo" width="200px" height="50px"></li>
+                <li id="hs"> <a href="#">Home</a> </li>
+                <li id="hs"> <a href="sales.html">Sales</a> </li>
+            </ul>
+        </nav>
+    </header>
+    <main>
+        <div class="carousel">
+            <div class="carousel-inner">
+                <input class="carousel-open" type="radio" id="carousel-1" name="carousel" aria-hidden="true" hidden=""
+                    checked="checked">
+                <div class="carousel-item">
+                    <img src="http://fakeimg.pl/2000x800/0079D8/fff/?text=Salmon">
+                </div>
+                <input class="carousel-open" type="radio" id="carousel-2" name="carousel" aria-hidden="true" hidden="">
+                <div class="carousel-item">
+                    <img src="http://fakeimg.pl/2000x800/DA5930/fff/?text=Cookies">
+                </div>
+                <input class="carousel-open" type="radio" id="carousel-3" name="carousel" aria-hidden="true" hidden="">
+                <div class="carousel-item">
+                    <img src="http://fakeimg.pl/2000x800/F90/fff/?text=Shop">
+                </div>
+                <label for="carousel-3" class="carousel-control prev control-1">‹</label>
+                <label for="carousel-2" class="carousel-control next control-1">›</label>
+                <label for="carousel-1" class="carousel-control prev control-2">‹</label>
+                <label for="carousel-3" class="carousel-control next control-2">›</label>
+                <label for="carousel-2" class="carousel-control prev control-3">‹</label>
+                <label for="carousel-1" class="carousel-control next control-3">›</label>
+                <ol class="carousel-indicators">
+                    <li>
+                        <label for="carousel-1" class="carousel-bullet">•</label>
+                    </li>
+                    <li>
+                        <label for="carousel-2" class="carousel-bullet">•</label>
+                    </li>
+                    <li>
+                        <label for="carousel-3" class="carousel-bullet">•</label>
+                    </li>
+                </ol>
+            </div>
+        </div>
 
-<ul>
-<li> <a href="#">Home</a> </li>
-<li> <a href="sales.html">Sales</a> </li>
-</ul>
-    
 
+    </main>
+
+
+    <footer>
+        <div id="footerDiv">
+            <div> <a href="https://www.google.com/maps/place/Seattle,+WA,+USA/@47.6043732,-122.4023479,12.04z/data=!4m5!3m4!1s0x5490102c93e83355:0x102565466944d59a!8m2!3d47.6062095!4d-122.3320708", alt="">Location</a> </div>
+            <div> <a href="#">Opening Hours</a>  </div>
+            <div> <a href="#">Our Branches</a>  </div>
+            <div></div>
+        </div>
+        <div id="fDiv2">
+            <p>Copyright © 2018 bricho.com And Made With Love All Rights Reserved.</p>
+        </div>
+       
+    </footer>
 </body>
+
 </html>

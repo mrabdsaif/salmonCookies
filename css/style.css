@@ -1,3 +1,369 @@
+@import url('https://fonts.googleapis.com/css2?family=Kite+One&display=swap');
+html{
+    scroll-behavior: smooth;
+    
+}
+body{
+    margin: 0;
+    padding: 0;
+}
+h1,h2,h3{
+    font-family: 'Kite One', sans-serif;
+}
+li,a{
+    font-family: 'Kite One', sans-serif;
+}
+table th,tfoot{
+    font-family: 'Kite One', sans-serif;
+}
+table tbody{
+    font-family: 'Times New Roman','Kite One', sans-serif;
+}
+/* Home page css  */
+body header nav ul {
+    display: inline-block;
+    list-style: none;
+    
+}
+body header nav ul li{
+    display: inline-block;
+    line-height: 50px;
+    margin-left: 50px;
+
+}
+body header nav ul li a{
+    text-decoration: none;
+    line-height: 50px;
+}
+
+/* Slide Show / Home page ... */
+
+.slidershow{
+    width: 700px;
+    height: 400px;
+    overflow: hidden;
+  }
+  .middle{
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%,-50%);
+  }
+  .navigation{
+    position: absolute;
+    top: 0px;
+    left: 50%;
+    transform: translateX(-50%);
+    display: flex;
+  }
+  .bar{
+    width: 50px;
+    height: 10px;
+    border: 2px solid #000;
+    
+    margin: 6px;
+    cursor: pointer;
+    transition: 0.4s;
+  }
+  .bar:hover{
+    background: black;
+  }
+  
+  input[name="r"]{
+      position: absolute;
+      visibility: hidden;
+  }
+  
+  .slides{
+    width: 500%;
+    height: 100%;
+    display: flex;
+  }
+  
+  .slide{
+    width: 20%;
+    transition: 0.6s;
+  }
+  .slide img{
+    width: 100%;
+    height: 100%;
+  }
+  
+  #r1:checked ~ .s1{
+    margin-left: 0;
+  }
+  #r2:checked ~ .s1{
+    margin-left: -20%;
+  }
+  #r3:checked ~ .s1{
+    margin-left: -40%;
+  }
+  #r4:checked ~ .s1{
+    margin-left: -60%;
+  }
+  #r5:checked ~ .s1{
+    margin-left: -80%;
+  }
+  
+
+
+
+
+
+
+
+
+
+
+/* sales Page css  */
+
+#container{
+    background-image: url('../img/cookieshop.jpg');
+    background-position: center;
+    /* background-attachment: fixed; */
+    background-size: cover;
+    background-repeat: no-repeat;
+    height: 700px;
+    position: relative;
+    margin: 0;
+    padding: 0%;
+}
+body h1{
+    color: black;
+    padding: 5px;
+    position: absolute;
+    left: 50px;
+    background-color:  rgba(255, 255, 255, 0.3);
+    backdrop-filter: blur(5px);
+    width: 20%;
+}
+table{
+    text-align: center;
+    border-collapse: collapse;
+    background-color:  rgba(255, 255, 255, 0.2);
+    backdrop-filter: blur(3px);
+    position: absolute;
+    top: 300px;
+    left:50px;
+   
+}
+table thead  th:first-child, th:last-child {
+    color: rgb(255, 255, 255);
+    background-color: rgba(0, 0, 0, 0.9);
+    box-shadow: 3px 3px 6px black;
+    border-radius: 10px;
+}
+table thead tr th  {
+    font-size: 16px;
+    color: rgb(255, 255, 255);
+    padding: 10px 25px;
+    transition: background-color 2s,box-shadow .2s, border-radius 3s;
+}
+table thead tr th:hover  {
+   
+    color: rgb(255, 255, 255);
+    background-color: rgba(0, 0, 0, 0.9);
+    box-shadow: 3px 3px 6px black;
+    border-radius: 10px;
+    }
+table tbody th {
+        padding: 10px 25px;
+        font-size: 14px;
+        color: white;
+        box-shadow: 1px 1px 2px black;
+        color: white;
+        transition: background-color 1s,box-shadow .5s;
+    }
+table tbody th:hover{
+        /* border: 1px solid black; */
+        background-color: rgba(0, 0, 0, 0.9);
+        color: white;
+        box-shadow: 3px 3px 6px black;
+    }    
+table tbody td {
+    padding: 10px 25px;
+    font-size: 14px;
+    border-bottom: 1px solid white;
+    background-color: rgba(4, 92, 77, 0.5);
+    color: white;
+    transition: background-color 1s,box-shadow .5s;
+}
+table tbody td:hover {
+    /* border: 1px solid black; */
+    background-color: rgba(0, 0, 0, 0.9);
+    color: white;
+    box-shadow: 3px 3px 6px black;
+}
+
+table tfoot td {
+    padding: 10px 25px;
+    color: white;
+    font-size: 16px;
+    
+    font-weight: bold;
+    transition: box-shadow .5s, color 1s;
+}
+table tfoot td:hover{
+    color: black;
+    box-shadow: 1px 1px 6px white;
+}
+
+#container a {
+    position: absolute;
+    font-size: 20px;
+    top: 650px;
+    left: 50px;
+    text-decoration: none;
+    color: black;
+    background-color: rgba(255, 255, 255, 0.3);
+    padding: 5px 30px;
+}
+
+/* Slide Show  CodePen ... */
+
+.carousel {
+    position: relative;
+    box-shadow: 0px 1px 6px rgba(0, 0, 0, 0.64);
+    margin-top: 26px;
+}
+
+.carousel-inner {
+    position: relative;
+    overflow: hidden;
+    width: 100%;
+}
+
+.carousel-open:checked + .carousel-item {
+    position: static;
+    opacity: 100;
+}
+
+.carousel-item {
+    position: absolute;
+    opacity: 0;
+    -webkit-transition: opacity 0.6s ease-out;
+    transition: opacity 0.6s ease-out;
+}
+
+.carousel-item img {
+    display: block;
+    height: auto;
+    max-width: 100%;
+}
+
+.carousel-control {
+    background: rgba(0, 0, 0, 0.28);
+    border-radius: 50%;
+    color: #fff;
+    cursor: pointer;
+    display: none;
+    font-size: 40px;
+    height: 40px;
+    line-height: 35px;
+    position: absolute;
+    top: 50%;
+    -webkit-transform: translate(0, -50%);
+    cursor: pointer;
+    -ms-transform: translate(0, -50%);
+    transform: translate(0, -50%);
+    text-align: center;
+    width: 40px;
+    z-index: 10;
+}
+
+.carousel-control.prev {
+    left: 2%;
+}
+
+.carousel-control.next {
+    right: 2%;
+}
+
+.carousel-control:hover {
+    background: rgba(0, 0, 0, 0.8);
+    color: #aaaaaa;
+}
+
+#carousel-1:checked ~ .control-1,
+#carousel-2:checked ~ .control-2,
+#carousel-3:checked ~ .control-3 {
+    display: block;
+}
+
+.carousel-indicators {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    position: absolute;
+    bottom: 2%;
+    left: 0;
+    right: 0;
+    text-align: center;
+    z-index: 10;
+}
+
+.carousel-indicators li {
+    display: inline-block;
+    margin: 0 5px;
+}
+
+.carousel-bullet {
+    color: #fff;
+    cursor: pointer;
+    display: block;
+    font-size: 35px;
+}
+
+.carousel-bullet:hover {
+    color: #aaaaaa;
+}
+
+#carousel-1:checked ~ .control-1 ~ .carousel-indicators li:nth-child(1) .carousel-bullet,
+#carousel-2:checked ~ .control-2 ~ .carousel-indicators li:nth-child(2) .carousel-bullet,
+#carousel-3:checked ~ .control-3 ~ .carousel-indicators li:nth-child(3) .carousel-bullet {
+    color: #428bca;
+}
+
+#title {
+    width: 100%;
+    position: absolute;
+    padding: 0px;
+    margin: 0px auto;
+    text-align: center;
+    font-size: 27px;
+    color: rgba(255, 255, 255, 1);
+    font-family: 'Open Sans', sans-serif;
+    z-index: 9999;
+    text-shadow: 0px 1px 2px rgba(0, 0, 0, 0.33), -1px 0px 2px rgba(255, 255, 255, 0);
+}
+
+
+#footerDiv{
+    display: flex;
+}
+#footerDiv div{
+    flex: 1;
+    margin-left: 17%;
+    margin-top: 5%;
+    margin-bottom: 5%;
+}
+#footerDiv div a{
+text-decoration: none;
+color: black;
+}
+footer div p{
+    width: 40%;
+    margin: auto;
+}
+#fDiv2{
+    background-color: #da5930;
+    
+}
+
+.hs{
+   float: right;
+}
+=======
 
 table{
     text-align: center;
@@ -26,5 +392,6 @@ table tbody td:hover {
     background-color: rgba(0, 0, 0, 0.5);
     color: white;
 }
+
 
 
