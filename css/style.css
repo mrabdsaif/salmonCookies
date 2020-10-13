@@ -1,4 +1,4 @@
-#container{
+body div{
     background-image: url('../img/cookieshop.webp');
     background-position: center;
     /* background-attachment: fixed; */
@@ -12,23 +12,25 @@ table{
     text-align: center;
     border-collapse: collapse;
     background-color:  rgba(4, 92, 77, 0.3);
-    backdrop-filter: blur(5px);
+    backdrop-filter: blur(7px);
     position: absolute;
-    top: 30px;
-    left:300px;
+    top: 130px;
+    left:250px;
+    border-radius: 10px;
 }
-table thead tr th  {
+table thead  th  {
 font-size: 15px;
 color: rgb(0, 21, 29);
-padding: 10px;
+padding: 5px 15px;
 
-transition: background-color 1s,box-shadow .5s;
+transition: background-color 1s,box-shadow .2s, border-radius 3s;
 }
 table thead tr th:hover  {
    
     color: rgb(255, 255, 255);
     background-color: rgba(0, 0, 0, 0.9);
     box-shadow: 3px 3px 6px black;
+    border-radius: 10px;
     }
 table tbody td {
     border: 1px solid white;
@@ -53,14 +55,13 @@ table tbody td:hover {
     box-shadow: 3px 3px 6px black;
 }
 
-table tfoot {
-    font-weight: bolder;
+table tfoot td {
+    font-weight: bold;
     transition: background-color 1s,box-shadow .5s;
 }
 table tfoot td:hover{
     border: 1px solid black;
     background-color: rgba(0, 0, 0, 0.9);
     color: white;
-    box-shadow: 3px 3px 6px black;
-    
+    box-shadow: 3px 3px 6px black; 
 }
