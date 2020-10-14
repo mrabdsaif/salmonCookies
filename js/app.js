@@ -4,8 +4,8 @@ var hour = ['6:am', '7:am', '8:am', '9:am', '10:am', '11:am', '12:am', '1:pm', '
 
 // create a constructor for all Branches 
 var allBranches = [];
-console.log(allBranches);
-var lastColSum=0;
+// console.log(allBranches);
+var lastColSum = 0;
 var Branch = function (location, min, max, averageCookiesPerHour) {
     this.location = location;
     this.min = min;
@@ -20,7 +20,7 @@ var Branch = function (location, min, max, averageCookiesPerHour) {
 
 Branch.prototype.getRandom = function () {
     for (var i = 0; i < hour.length; i++) {
-        this.randomCustPerHour.push(Math.floor(Math.random() * (this.max - this.min + 1) + this.min));
+        this.randomCustPerHour.push(Math.floor(Math.random() * (this.max - this.min) + this.min));
     }
 
     // console.log(this.randomCustPerHour);
@@ -33,8 +33,8 @@ Branch.prototype.soldCookies = function () {
         this.dailyTotal += this.salesPerHour[j];
 
     }
-    lastColSum += this.dailyTotal; 
-    console.log(this.dailyTotal);
+    lastColSum += this.dailyTotal;
+    // console.log(this.dailyTotal);
     // console.log(this.salesPerHour);
 }
 
@@ -69,7 +69,6 @@ function header() {
     thE.textContent = 'Daily Total';
 
 }
-header();
 
 
 
@@ -95,13 +94,46 @@ Branch.prototype.render = function () {
     tdE3.textContent = this.dailyTotal;
 
 }
+function renderAll(){
+    header();
+    for (var i = 0; i < allBranches.length; i++) {
+        allBranches[i].getRandom();
+        allBranches[i].soldCookies();
+        allBranches[i].render();
+        // console.log(allBranches[i]);
+    }
+    
 
+}
+renderAll();
+footer();
+var myForm = document.getElementById('branchesForm');
+myForm.addEventListener('submit', function (e) {
 
+    e.preventDefault();
+    console.log(e);
+    var area = e.target.location.value;
+    var min = parseInt(e.target.min.value);  // values from the form are strings so we need to cinvert them to intgs or float as required ...
+    var max = parseInt(e.target.max.value);
+    var avrg = parseFloat(e.target.average.value);
+
+    var newBranch = new Branch(area, min, max, avrg);
+    console.log(newBranch);
+
+    newBranch.getRandom();
+    newBranch.soldCookies();
+    newBranch.render();
+    myForm.reset();
+    
+    // tableE.parentNode.removeChild(tfoot);
+    section.tableE.tfoot.innerHTML = '';
+    footer();
+});
 
 
 function footer() {
-
     var tfoot = document.createElement('tfoot');
+
     tableE.appendChild(tfoot);
     var trE = document.createElement('tr');
     tfoot.appendChild(trE);
@@ -119,7 +151,7 @@ function footer() {
         for (var j = 0; j < allBranches.length; j++) {
 
             colTotal += (allBranches[j].salesPerHour[i]);
-            console.log(hourlyTotal);
+            // console.log(hourlyTotal);
         }
 
         hourlyTotal.push(colTotal);
@@ -130,23 +162,14 @@ function footer() {
     trE.appendChild(tdElast);
     tdElast.textContent = lastColSum;
     
-
-        
-  
-   
 }
 
 
 
 
 
-for (var i = 0; i < allBranches.length; i++) {
-    allBranches[i].getRandom();
-    allBranches[i].soldCookies();
-    allBranches[i].render();
-    // console.log(allBranches[i]);
-}
-footer();
+
+
 
 
 
