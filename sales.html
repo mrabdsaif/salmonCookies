@@ -9,11 +9,35 @@
 </head>
 
 <body id="container">
-   
-        <h1>Salmon Cookies Shop</h1>
-        <table id="table">
-        </table>
-        <a href="index.html">  Back To Home</a>
+    <header>
+        <h1 class="header">Salmon Cookies Shop</h1>
+    </header>
+    <main>
+        <section>
+            <form id="branchesForm">
+                <fieldset>
+                    <legend>Branch Info</legend>
+                    <label for="location">Branch Location : </label> <br>
+                    <input type="text" id="location" placeholder="Branch Location"> <br>
+                    <label for="min">Minimum Customers Per Hour :</label> <br>
+                    <input type="text" id="min" placeholder="Minimum Number Of Customers/Hour"> <br>
+                    <label for="max">Maximum Customers Per Hour :</label> <br>
+                    <input type="text" id="max" placeholder="Maximum Number Of Customers/Hour"> <br>
+                    <label for="average">Average Sales Per Hour :</label> <br>
+                    <input type="text" id="average" placeholder="Sales Average Per Hour"> <br>
+                    <input type="submit" id="submit">
+                </fieldset>
+            </form>
+        </section>
+        <section>
+
+            <table id="table">
+            </table>
+            <a href="index.html"> Back To Home</a>
+            
+        </section>
+    </main>
+
     <script src="js/app.js"></script>
 </body>
 
