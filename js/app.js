@@ -153,7 +153,7 @@ myForm.addEventListener('submit', function (e) {
     e.preventDefault();
     console.log(e);
     var area = e.target.location.value;
-    var min = parseInt(e.target.min.value);  // values from the form are strings so we need to cinvert them to intgs or float as required ...
+    var min = parseInt(e.target.min.value);  // values from the form are string so we need to convert them to intg or float as required ...
     var max = parseInt(e.target.max.value);
     var avrg = parseFloat(e.target.average.value);
 
@@ -174,23 +174,5 @@ myForm.addEventListener('submit', function (e) {
     footer();
 
 });
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
