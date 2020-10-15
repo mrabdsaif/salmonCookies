@@ -1,5 +1,43 @@
 'use strict';
 
+
+function footer() {
+    var tfoot = document.createElement('tfoot');
+
+    tableE.appendChild(tfoot);
+    var trE = document.createElement('tr');
+    tfoot.appendChild(trE);
+    var tdE1 = document.createElement('td');
+    trE.appendChild(tdE1);
+    tdE1.textContent = 'Total';
+
+    var hourlyTotal = [];
+    for (var i = 0; i < hour.length; i++) {
+
+        var tdE2 = document.createElement('td');
+        trE.appendChild(tdE2);
+
+        var colTotal = 0;
+        for (var j = 0; j < allBranches.length; j++) {
+
+            colTotal += (allBranches[j].salesPerHour[i]);
+            // console.log(hourlyTotal);
+        }
+
+        hourlyTotal.push(colTotal);
+
+        tdE2.textContent = colTotal;
+    }
+    var tdElast = document.createElement('td');
+    trE.appendChild(tdElast);
+    tdElast.textContent = lastColSum;
+
+    
+}
+
+
+
+
 var hour = ['6:am', '7:am', '8:am', '9:am', '10:am', '11:am', '12:am', '1:pm', '2:pm', '3:pm', '4:pm', '5:pm', '6:pm', '7:pm'];
 
 // create a constructor for all Branches 
@@ -107,6 +145,8 @@ function renderAll(){
 }
 renderAll();
 footer();
+
+
 var myForm = document.getElementById('branchesForm');
 myForm.addEventListener('submit', function (e) {
 
@@ -120,49 +160,23 @@ myForm.addEventListener('submit', function (e) {
     var newBranch = new Branch(area, min, max, avrg);
     console.log(newBranch);
 
+
+    // tableE.innerHTML = '';
+    
+    // colTotal =0;
+    var row = tableE.rows.length;
+    tableE.deleteRow(row-1);
     newBranch.getRandom();
     newBranch.soldCookies();
     newBranch.render();
     myForm.reset();
-    
-    // tableE.parentNode.removeChild(tfoot);
-    section.tableE.tfoot.innerHTML = '';
+    // tableE.removeChild(tfoot);
     footer();
+
 });
 
 
-function footer() {
-    var tfoot = document.createElement('tfoot');
 
-    tableE.appendChild(tfoot);
-    var trE = document.createElement('tr');
-    tfoot.appendChild(trE);
-    var tdE1 = document.createElement('td');
-    trE.appendChild(tdE1);
-    tdE1.textContent = 'Total';
-
-    var hourlyTotal = [];
-    for (var i = 0; i < hour.length; i++) {
-
-        var tdE2 = document.createElement('td');
-        trE.appendChild(tdE2);
-
-        var colTotal = 0;
-        for (var j = 0; j < allBranches.length; j++) {
-
-            colTotal += (allBranches[j].salesPerHour[i]);
-            // console.log(hourlyTotal);
-        }
-
-        hourlyTotal.push(colTotal);
-
-        tdE2.textContent = colTotal;
-    }
-    var tdElast = document.createElement('td');
-    trE.appendChild(tdElast);
-    tdElast.textContent = lastColSum;
-    
-}
 
 
 
