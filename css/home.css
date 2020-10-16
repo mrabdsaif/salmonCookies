@@ -1,0 +1,95 @@
+body header nav ul {
+    display: flex;
+    height: 100px;
+    line-height: 100px;
+    background-color: cadetblue;
+    position: sticky;
+
+}
+header nav ul li{
+    flex: 1;
+    margin-left: -20px;
+    list-style: none;
+    font-family:  'Arial Narrow','Franklin Gothic Medium', Arial, sans-serif;
+
+}
+header nav ul li a{
+    text-decoration: none;
+    color: black;
+    font-family:  'Arial Narrow','Franklin Gothic Medium', Arial, sans-serif;
+}
+main h2 {
+    font-size: 50px;
+    font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+    
+}
+#firstP{
+    font-family: 'Courier New', Courier, monospace;
+    text-align: justify;
+    width: 50%;
+    margin: 0 auto;
+}
+#firstP p {
+    padding: 10px;
+    font-size: larger;
+    color: darkslategray;
+}
+#firstP p:last-child {
+    padding: 10px;
+    border-left: 5px solid #000000;
+    color: black;
+    font-weight: bold;
+}
+#container{
+    color: black;
+    width: 50%;
+    height: 600px;
+    margin: 0 auto;
+    background-color: gray;
+    overflow-y: scroll;
+}
+#container div img{
+    padding: 15px;
+    /* margin: 0 0 0 20%; */
+}
+#container  p{
+    color: black;
+    font-family: 'Courier New', Courier, monospace;
+    padding: 15px;
+}
+
+#container div div{
+    display: flex;
+}
+#container div div h4{
+    flex: 1;
+    margin-left: 8%;
+    padding: 10px;
+}
+
+
+#footerDiv{
+    display: flex;
+    text-align: center;
+}
+#footerDiv div{
+    flex: 1;
+    margin-left: 17%;
+    margin-top: 5%;
+    margin-bottom: 5%;
+}
+#footerDiv div a{
+text-decoration: none;
+color: black;
+}
+footer div p{
+    width: 40%;
+    margin: auto;
+}
+#fDiv2{
+    background-color: #da5930;
+}
+
+.hs{
+   float: right;
+}
