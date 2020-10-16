@@ -1,7 +1,6 @@
 @import url('https://fonts.googleapis.com/css2?family=Kite+One&display=swap');
 html{
     scroll-behavior: smooth;
-    
 }
 body{
     margin: 0;
@@ -19,7 +18,9 @@ table th,tfoot,tbody{
 #branchesForm fieldset{
     font-family: 'Kite One', sans-serif;
 }
+
 /* Home page css  */
+
 body header nav ul {
     display: inline-block;
     list-style: none;
@@ -41,7 +42,6 @@ body header nav ul li a{
 #container{
     background-image: url('../img/cookieshop.jpg');
     background-position: center;
-    /* background-attachment: fixed; */
     background-size: cover;
     background-repeat: no-repeat;
     height: 1000px;
@@ -65,14 +65,17 @@ table{
     position: absolute;
     top: 500px;
     left:15px;
-   
 }
 table thead  th:first-child, th:last-child {
     color: rgb(255, 255, 255);
     background-color: rgba(0, 0, 0, 0.9);
     box-shadow: 3px 3px 6px black;
     border-radius: 10px;
+    transition: color 2s;
 }
+table thead  th:first-child:hover, th:last-child:hover{
+    color:  rgba(62, 163, 146);
+} 
 table thead tr th  {
     font-size: 16px;
     color: rgb(255, 255, 255);
@@ -95,7 +98,6 @@ table tbody th {
         transition: background-color 1s,box-shadow .5s;
     }
 table tbody th:hover{
-        /* border: 1px solid black; */
         background-color: rgba(0, 0, 0, 0.9);
         color: white;
         box-shadow: 3px 3px 6px black;
@@ -106,10 +108,10 @@ table tbody td {
     border-bottom: 1px solid white;
     background-color: rgba(4, 92, 77, 0.5);
     color: white;
-    transition: background-color 1s,box-shadow .5s;
+    transition: background-color 1s,box-shadow 1s;
+    ;
 }
 table tbody td:hover {
-    /* border: 1px solid black; */
     background-color: rgba(0, 0, 0, 0.9);
     color: white;
     box-shadow: 3px 3px 6px black;
@@ -121,7 +123,7 @@ table tfoot td {
     font-size: 16px;
     
     font-weight: bold;
-    transition: box-shadow .5s, color 1s;
+    transition: box-shadow 2s, color 2s;
 }
 table tfoot td:hover{
     color: black;
@@ -146,31 +148,7 @@ table tfoot td:hover{
 }
 
 
-#footerDiv{
-    display: flex;
-}
-#footerDiv div{
-    flex: 1;
-    margin-left: 17%;
-    margin-top: 5%;
-    margin-bottom: 5%;
-}
-#footerDiv div a{
-text-decoration: none;
-color: black;
-}
-footer div p{
-    width: 40%;
-    margin: auto;
-}
-#fDiv2{
-    background-color: #da5930;
-    
-}
 
-.hs{
-   float: right;
-}
 
 
 /* Form css work  */

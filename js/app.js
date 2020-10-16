@@ -165,7 +165,10 @@ myForm.addEventListener('submit', function (e) {
     
     // colTotal =0;
     var row = tableE.rows.length;
+    console.log('before', tableE);
     tableE.deleteRow(row-1);
+    console.log('after', tableE);
+
     newBranch.getRandom();
     newBranch.soldCookies();
     newBranch.render();
