@@ -1,49 +1,12 @@
 'use strict';
 
 
-function footer() {
-    var tfoot = document.createElement('tfoot');
-
-    tableE.appendChild(tfoot);
-    var trE = document.createElement('tr');
-    tfoot.appendChild(trE);
-    var tdE1 = document.createElement('td');
-    trE.appendChild(tdE1);
-    tdE1.textContent = 'Total';
-
-    var hourlyTotal = [];
-    for (var i = 0; i < hour.length; i++) {
-
-        var tdE2 = document.createElement('td');
-        trE.appendChild(tdE2);
-
-        var colTotal = 0;
-        for (var j = 0; j < allBranches.length; j++) {
-
-            colTotal += (allBranches[j].salesPerHour[i]);
-            // console.log(hourlyTotal);
-        }
-
-        hourlyTotal.push(colTotal);
-
-        tdE2.textContent = colTotal;
-    }
-    var tdElast = document.createElement('td');
-    trE.appendChild(tdElast);
-    tdElast.textContent = lastColSum;
-
-    
-}
-
-
-
-
 var hour = ['6:am', '7:am', '8:am', '9:am', '10:am', '11:am', '12:am', '1:pm', '2:pm', '3:pm', '4:pm', '5:pm', '6:pm', '7:pm'];
 
-// create a constructor for all Branches 
 var allBranches = [];
 // console.log(allBranches);
 var lastColSum = 0;
+
 var Branch = function (location, min, max, averageCookiesPerHour) {
     this.location = location;
     this.min = min;
@@ -66,6 +29,7 @@ Branch.prototype.getRandom = function () {
 
 
 Branch.prototype.soldCookies = function () {
+
     for (var j = 0; j < hour.length; j++) {
         this.salesPerHour.push(Math.ceil(this.randomCustPerHour[j] * this.averageCookiesPerHour));
         this.dailyTotal += this.salesPerHour[j];
@@ -87,6 +51,7 @@ var lima = new Branch('Lima', 2, 16, 4.6);
 var tableE = document.getElementById('table');
 
 function header() {
+
     var thead = document.createElement('thead');
     tableE.appendChild(thead);
 
@@ -98,14 +63,15 @@ function header() {
     thE.textContent = 'Branches';
 
     for (var i = 0; i < hour.length; i++) {
+
         var thE = document.createElement('th');
         trE.appendChild(thE);
         thE.textContent = hour[i];
     }
+
     var thE = document.createElement('th');
     trE.appendChild(thE);
     thE.textContent = 'Daily Total';
-
 }
 
 
@@ -132,7 +98,7 @@ Branch.prototype.render = function () {
     tdE3.textContent = this.dailyTotal;
 
 }
-function renderAll(){
+function renderAll() {
     header();
     for (var i = 0; i < allBranches.length; i++) {
         allBranches[i].getRandom();
@@ -140,15 +106,14 @@ function renderAll(){
         allBranches[i].render();
         // console.log(allBranches[i]);
     }
-    
 
+    footer();
 }
 renderAll();
-footer();
 
 
 var myForm = document.getElementById('branchesForm');
-myForm.addEventListener('submit', function (e) {
+    myForm.addEventListener('submit', function (e) {
 
     e.preventDefault();
     console.log(e);
@@ -162,20 +127,50 @@ myForm.addEventListener('submit', function (e) {
 
 
     // tableE.innerHTML = '';
-    
     // colTotal =0;
+
     var row = tableE.rows.length;
     console.log('before', tableE);
-    tableE.deleteRow(row-1);
+    tableE.deleteRow(row - 1);
     console.log('after', tableE);
 
     newBranch.getRandom();
     newBranch.soldCookies();
     newBranch.render();
     myForm.reset();
+
     // tableE.removeChild(tfoot);
     footer();
 
 });
 
 
+function footer() {
+    var tfoot = document.createElement('tfoot');
+
+    tableE.appendChild(tfoot);
+    var trE = document.createElement('tr');
+    tfoot.appendChild(trE);
+    var tdE1 = document.createElement('td');
+    trE.appendChild(tdE1);
+    tdE1.textContent = 'Total';
+
+    for (var i = 0; i < hour.length; i++) {
+
+        var tdE2 = document.createElement('td');
+        trE.appendChild(tdE2);
+
+        var colTotal = 0;
+        for (var j = 0; j < allBranches.length; j++) {
+
+            colTotal += (allBranches[j].salesPerHour[i]);
+            // console.log(hourlyTotal);
+        }
+
+
+        tdE2.textContent = colTotal;
+    }
+    var tdElast = document.createElement('td');
+    trE.appendChild(tdElast);
+    tdElast.textContent = lastColSum;
+}
