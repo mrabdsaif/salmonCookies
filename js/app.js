@@ -113,26 +113,29 @@ renderAll();
 
 
 var myForm = document.getElementById('branchesForm');
-    myForm.addEventListener('submit', function (e) {
+    myForm.addEventListener('submit', sucmitionHandler);
+    
+    function sucmitionHandler (e) {
 
     e.preventDefault();
-    console.log(e);
+    // console.log(e);
+
     var area = e.target.location.value;
     var min = parseInt(e.target.min.value);  // values from the form are string so we need to convert them to intg or float as required ...
     var max = parseInt(e.target.max.value);
     var avrg = parseFloat(e.target.average.value);
 
     var newBranch = new Branch(area, min, max, avrg);
-    console.log(newBranch);
+    // console.log(newBranch);
 
 
     // tableE.innerHTML = '';
     // colTotal =0;
 
     var row = tableE.rows.length;
-    console.log('before', tableE);
+    // console.log('before', tableE);
     tableE.deleteRow(row - 1);
-    console.log('after', tableE);
+    // console.log('after', tableE);
 
     newBranch.getRandom();
     newBranch.soldCookies();
@@ -142,7 +145,7 @@ var myForm = document.getElementById('branchesForm');
     // tableE.removeChild(tfoot);
     footer();
 
-});
+}
 
 
 function footer() {
