@@ -7,6 +7,8 @@ var allBranches = [];
 // console.log(allBranches);
 var lastColSum = 0;
 
+
+
 var Branch = function (location, min, max, averageCookiesPerHour) {
     this.location = location;
     this.min = min;
@@ -19,6 +21,8 @@ var Branch = function (location, min, max, averageCookiesPerHour) {
     allBranches.push(this);
 }
 
+
+
 Branch.prototype.getRandom = function () {
     for (var i = 0; i < hour.length; i++) {
         this.randomCustPerHour.push(Math.floor(Math.random() * (this.max - this.min) + this.min));
@@ -26,6 +30,8 @@ Branch.prototype.getRandom = function () {
 
     // console.log(this.randomCustPerHour);
 }
+
+
 
 
 Branch.prototype.soldCookies = function () {
@@ -39,6 +45,11 @@ Branch.prototype.soldCookies = function () {
     // console.log(this.dailyTotal);
     // console.log(this.salesPerHour);
 }
+
+
+
+
+// declaring objects we already know their values ...
 
 var seattle = new Branch('Seattle', 23, 65, 6.3);
 var tokyo = new Branch('Tokyo', 3, 24, 1.2);
@@ -98,6 +109,11 @@ Branch.prototype.render = function () {
     tdE3.textContent = this.dailyTotal;
 
 }
+
+
+
+
+
 function renderAll() {
     header();
     for (var i = 0; i < allBranches.length; i++) {
@@ -112,16 +128,20 @@ function renderAll() {
 renderAll();
 
 
+
+
+
+
 var myForm = document.getElementById('branchesForm');
-    myForm.addEventListener('submit', sucmitionHandler);
-    
-    function sucmitionHandler (e) {
+myForm.addEventListener('submit', sucmitionHandler);  //calling the function inside the EventListnner without ().....
+
+function sucmitionHandler(e) {
 
     e.preventDefault();
     // console.log(e);
 
     var area = e.target.location.value;
-    var min = parseInt(e.target.min.value);  // values from the form are string so we need to convert them to intg or float as required ...
+    var min = parseInt(e.target.min.value);  // importing values from the Form are string so we need to convert them to intg or float as required ...
     var max = parseInt(e.target.max.value);
     var avrg = parseFloat(e.target.average.value);
 
@@ -129,24 +149,38 @@ var myForm = document.getElementById('branchesForm');
     // console.log(newBranch);
 
 
-    // tableE.innerHTML = '';
+    // tableE.innerHTML = '';        // another way to be reviewed !!!!
     // colTotal =0;
 
-    var row = tableE.rows.length;
-    // console.log('before', tableE);
-    tableE.deleteRow(row - 1);
-    // console.log('after', tableE);
+    // validation for user Input ...
 
-    newBranch.getRandom();
-    newBranch.soldCookies();
-    newBranch.render();
-    myForm.reset();
+    if (min < 0 || max < 1 || avrg == 0 || min == max || min > max) {
+        alert('Your Input are Invalid! \n \n Please try agian! ');
+        myForm.reset();
+    } else {
 
-    // tableE.removeChild(tfoot);
-    footer();
+        var row = tableE.rows.length;
+        // console.log('before', tableE);
+        tableE.deleteRow(row - 1);
+        // console.log('after', tableE);
+
+        newBranch.getRandom();
+        newBranch.soldCookies();
+        newBranch.render();
+        myForm.reset();
+
+        // tableE.removeChild(tfoot);  // another way to be reviewed !!!!
+        footer();
+    }
 
 }
 
+
+
+
+
+
+// footer function .....
 
 function footer() {
     var tfoot = document.createElement('tfoot');
